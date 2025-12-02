@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#sat-bg {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');
+    background-size: cover;
+    filter: invert(1) brightness(0.6) contrast(1.2);
+    transition: transform 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.grid-lines {
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .03) 25%, rgba(0, 255, 0, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .03) 75%, rgba(0, 255, 0, .03) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 0, .03) 25%, rgba(0, 255, 0, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .03) 75%, rgba(0, 255, 0, .03) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+}
+
+#access-code {
+    letter-spacing: 0.5em;
+}
+
+.map-zoom-fx {
+    transform: scale(4);
+    filter: brightness(0.2);
+}
+
+.code-fly {
+    animation: trajectory 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes trajectory {
+    0% { transform: translate(0,0) scale(1); }
+    40% { color: #ef4444; transform: translate(10px, -10px) scale(1.2); }
+    100% { transform: translate(-100vw, -50vh) scale(0.1); opacity: 0; }
+}
+
+.rest-fade {
+    animation: dissolve 0.8s ease-out forwards;
+}
+
+@keyframes dissolve {
+    to { opacity: 0; transform: translateX(20px); filter: blur(10px); }
+}
+
+.target-locked {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 30px #ef4444, inset 0 0 20px rgba(255,0,0,0.2);
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 2px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+    background: #000;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #15803d;
+}
+
+.leaflet-control-zoom { display: none; }
+.leaflet-bar { border: none; }
+.leaflet-container { background: #000; }
+.custom-pin {
+    background: transparent;
+}
+.pin-pulse {
+    width: 20px;
+    height: 20px;
+    background: #00ff00;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 1);
+    animation: mapPulse 1.5s infinite;
+}
+
+@keyframes mapPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(0, 255, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+.fade-in-ui {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
